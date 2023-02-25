@@ -92,10 +92,6 @@
           "name": "olive"
         },
         {
-          "id": 2,
-          "name": "bacon"
-        },
-        {
           "id": 3,
           "name": "basil"
         },
@@ -131,6 +127,16 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "Plain Ol' Bacon",
+      "toppings": [
+        {
+          "id": 2,
+          "name": "bacon"
+        }
+      ],
+      "id": 4
     }
   ]
 }
