@@ -47,8 +47,44 @@ export function reducer(
     case fromPizza.LOAD_PIZZAS_FAIL: {
       return {
         ...state,
+        loading: true,
+      };
+    }
+
+    case fromPizza.CREATE_PIZZA: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+
+    case fromPizza.UPDATE_PIZZA_SUCCESS:
+    case fromPizza.CREATE_PIZZA_SUCCESS: {
+      const pizza = action.payload;
+      const entities = {
+        ...state.entities,
+        [pizza.id]: pizza,
+      };
+      return {
+        ...state,
         loading: false,
-        loaded: false,
+        loaded: true,
+        entities,
+      };
+    }
+
+    case fromPizza.REMOVE_PIZZA_SUCCESS: {
+      const pizza = action.payload;
+      const { [pizza.id]: removedPizza, ...entities } = state.entities;
+      return {
+        ...state,
+        entities,
+      };
+    }
+
+    case fromPizza.CREATE_PIZZA_FAIL: {
+      return {
+        ...state,
       };
     }
   }
